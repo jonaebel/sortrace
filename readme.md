@@ -1,10 +1,60 @@
-# Sortrace
+# 🏁 sortrace
 
-Visualisation of diffent kind of sorting algorithms in C (+ training for my programming uni work)
+A terminal-based sorting algorithm visualizer written in C. Watch algorithms race each other in real time using ASCII bar charts.
 
+```
+3  ###
+7  #######
+1  #
+5  #####
+8  ########
+```
 
-# Day 01
+## Features (planned)
+- ASCII visualization of arrays in the terminal
+- Multiple sorting algorithms racing side by side: Bubble Sort, Merge Sort, Quick Sort
+- Step counter and time measurement per algorithm
+- Race history saved to file
+- Colorized output with ANSI escape codes
 
-- fill array with n random numbers
-- return array
-- visualize array
+## Algorithms
+| Algorithm | Time Complexity | Space Complexity |
+|-----------|----------------|-----------------|
+| Bubble Sort | O(n²) | O(1) |
+| Merge Sort | O(n log n) | O(n) |
+| Quick Sort | O(n log n) avg | O(log n) |
+
+## Build
+
+```bash
+make        # compile
+./sortrace  # run
+make clean  # remove binary
+```
+
+## Requirements
+- clang (macOS) or gcc (Linux)
+- make
+
+## Project Structure
+```
+sortrace/
+├── main.c        # entry point
+├── array.h/.c    # array creation and management
+├── render.h/.c   # ASCII visualization
+├── sorting.h/.c  # sorting algorithms
+├── stats.h/.c    # step counter and timing
+├── history.h/.c  # linked list for race history
+├── fileio.h/.c   # save/load results
+└── Makefile
+```
+
+## Dev Log
+### Day 01
+- Array generation with dynamic memory (`malloc`)
+- ASCII bar chart visualization
+- Makefile setup
+
+---
+
+> Built as a C programming exercise for university exams.
