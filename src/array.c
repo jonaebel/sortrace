@@ -1,5 +1,6 @@
 #include "array.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 //Fill the given array at pointer a with n random nummbers
 void fill_array(int n, int *a){
