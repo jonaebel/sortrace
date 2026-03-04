@@ -50,10 +50,15 @@ sortrace/
 ```
 
 ## Dev Log
-### Day 01
+### Step 01
 - Array generation with dynamic memory (`malloc`)
 - ASCII bar chart visualization
 - Makefile setup
+
+### Step 02
+- Implemented Bubble Sort, Merge Sort, Quick Sort
+- copy_array helper for independent sorting
+- All three algorithms tested and working
 
 ---
 

@@ -16,3 +16,14 @@ int *create_array(int n){
 
     return array;
 }
+
+
+int *copy_array(int *array, int n){
+    int *copy = malloc(sizeof(int) * n);
+
+    for (int i = 0; i < n; i++) {
+        copy[i] = array[i];
+    }
+
+    return copy;
+}
