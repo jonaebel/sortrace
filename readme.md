@@ -60,6 +60,10 @@ sortrace/
 - copy_array helper for independent sorting
 - All three algorithms tested and working
 
+### Step 03
+- Added SortAlgorithm enum and Sorter struct in sorting.h
+- create_sorter() and free_sorter() implemented
+- main.c refactored to use Sorter structs
 ---
 
 > Built as a C programming exercise for university exams.
