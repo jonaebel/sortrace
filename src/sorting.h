@@ -12,10 +12,12 @@ typedef enum SortAlgorithms{
 
 typedef struct Sorter {
     char name[50];
+    double time;
     SortAlgorithms algorithm;
     HistoryNode *history;
     int *to_sort;
     int n;
+    int steps;
 } Sorter;
 
 

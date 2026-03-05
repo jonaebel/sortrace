@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <time.h>
 
-const int N = 10;
+const int N = 100;
 
 int  main(){
 
@@ -26,21 +26,40 @@ int  main(){
     Sorter *quick = create_sorter("Quicksort", QuickSort, c, N);
 
     // Bubble sort
-    printf("Bubblesort: \n");
+    //printf("Bubblesort: \n");
+    clock_t start = clock();
     bubble_sort(bubble);
-    print_history(bubble->history, bubble->n);
+    clock_t end = clock();
+    bubble->time = (double)(end - start) / CLOCKS_PER_SEC;
+    bubble->steps = get_steps(bubble->history);
+
+    //print_history(bubble->history, bubble->n);
 
     // Mergesort
-    printf("Mergesort: \n");
+    //printf("Mergesort: \n");
+    start = clock();
     merge_sort(merge, 0, (merge->n)-1);
-    print_history(merge->history, merge->n);
+    end = clock();
+    merge->time = (double)(end - start) / CLOCKS_PER_SEC;
+    merge->steps = get_steps(merge->history);
+
+   // print_history(merge->history, merge->n);
 
     // Quicksort
-    printf("Quicksort: \n");
+    //printf("Quicksort: \n");
+    start = clock();
     quick_sort(quick, 0, (quick->n)-1);
-    print_history(quick->history, quick->n);
+    end = clock();
+    quick->time = (double)(end - start) / CLOCKS_PER_SEC;
+    quick->steps = get_steps(quick->history);
 
-    printf("Finished! :)");
+    //print_history(quick->history, quick->n);
+
+    printf("=== RESULTS ===\n");
+    printf("%s: %d steps, %.6f seconds\n", bubble->name, bubble->steps, bubble->time);
+    printf("%s: %d steps, %.6f seconds\n", merge->name, merge->steps, merge->time);
+    printf("%s: %d steps, %.6f seconds\n", quick->name, quick->steps, quick->time);
+
 
     free_sorter(bubble);
     free_sorter(merge);

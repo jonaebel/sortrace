@@ -23,6 +23,13 @@ void add_result(HistoryNode *node, int *array, int n){
     new_node->n = n;
 }
 
+int get_steps(HistoryNode *node){
+    while (node->next != NULL) {
+        node = node->next;
+    }
+    return node->step;
+}
+
 void print_history(HistoryNode *list, int n){
     while (list != NULL) {
         printf("Step %i: \n", list->step);

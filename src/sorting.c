@@ -12,6 +12,8 @@ Sorter *create_sorter(char *name, SortAlgorithms algorithm, int *to_sort, int n)
     sorter->algorithm = algorithm;
     sorter->to_sort = to_sort;
     sorter->n = n;
+    sorter->time = 0.0;
+    sorter->steps = 0;
     strcpy(sorter->name, name);
     return sorter;
 }

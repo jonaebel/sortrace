@@ -43,7 +43,6 @@ sortrace/
 ├── array.h/.c    # array creation and management
 ├── render.h/.c   # ASCII visualization
 ├── sorting.h/.c  # sorting algorithms
-├── stats.h/.c    # step counter and timing
 ├── history.h/.c  # linked list for race history
 ├── fileio.h/.c   # save/load results
 └── Makefile

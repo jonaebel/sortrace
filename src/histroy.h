@@ -8,6 +8,10 @@ typedef struct Node {
     int n;
 } HistoryNode;
 
+
+// returns steps for one history list
+int get_steps(HistoryNode *node);
+
 // creates HEAD node for history linked list
 void create_history(HistoryNode **head, int *array, int n);
 
