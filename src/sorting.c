@@ -94,7 +94,9 @@ void merge(int arr[], int l, int m, int r){
     }
 }
 
-void bubble_sort(int *array, int n, Sorter *sorter){
+void bubble_sort(Sorter *sorter){
+    int *array = sorter->to_sort;
+    int n = sorter->n;
     int i, j = 0;
         for (i = 0; i < n - 1; i++) {
             for (j = 0; j < n - i - 1; j++) {
@@ -106,30 +108,30 @@ void bubble_sort(int *array, int n, Sorter *sorter){
         }
 }
 
-void quick_sort(int *array, int low, int high, Sorter *sorter){
+void quick_sort(Sorter *sorter, int low, int high){
     if (low < high) {
 
             // pi is the partition return index of pivot
-            int pi = partition(array, low, high);
+            int pi = partition(sorter->to_sort, low, high);
 
             // recursion calls for smaller elements
             // and greater or equals elements
-            quick_sort(array, low, pi - 1, sorter);
-            quick_sort(array, pi + 1, high, sorter);
-            add_result(sorter->history, array, sorter->n);
+            quick_sort(sorter, low, pi - 1);
+            quick_sort(sorter, pi + 1, high);
+            add_result(sorter->history, sorter->to_sort, sorter->n);
         }
 }
 
-void merge_sort(int *array, int l, int r, Sorter *sorter){
+void merge_sort(Sorter *sorter, int l, int r){
 
     if (l < r) {
         int m = l + (r - l) / 2;
 
         // Sort first and second halves
-        merge_sort(array, l, m, sorter);
-        merge_sort(array, m + 1, r, sorter);
+        merge_sort(sorter, l, m);
+        merge_sort(sorter, m + 1, r);
 
-        merge(array, l, m, r);
-        add_result(sorter->history, array, sorter->n);
+        merge(sorter->to_sort, l, m, r);
+        add_result(sorter->history, sorter->to_sort, sorter->n);
     }
 }

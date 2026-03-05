@@ -35,12 +35,12 @@ int partition(int *array, int low, int high);
 void merge(int arr[], int l, int m, int r);
 
 // Bubblesort algorithm
-void bubble_sort(int *array, int n, Sorter *sorter);
+void bubble_sort(Sorter *sorter);
 
 //  Mergesort algorithm
-void merge_sort(int *array, int l, int r, Sorter *sorter);
+void merge_sort(Sorter *sorter, int l, int r);
 
 // Quicksort algorithm (maybe enum to choose which pivot to choose ? )
-void quick_sort(int *array, int low, int high, Sorter *sorter);
+void quick_sort(Sorter *sorter,  int low, int high);
 
 #endif

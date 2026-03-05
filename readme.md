@@ -64,6 +64,13 @@ sortrace/
 - Added SortAlgorithm enum and Sorter struct in sorting.h
 - create_sorter() and free_sorter() implemented
 - main.c refactored to use Sorter structs
+
+### Step 04
+- Added HistoryNode linked list to track sorting steps
+- History integrated into Sorter struct
+- Each algorithm records state after every swap/merge
+- print_history shows step-by-step visualization
+
 ---
 
 > Built as a C programming exercise for university exams.
