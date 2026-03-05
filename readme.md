@@ -44,7 +44,6 @@ sortrace/
 ├── render.h/.c   # ASCII visualization
 ├── sorting.h/.c  # sorting algorithms
 ├── history.h/.c  # linked list for race history
-├── fileio.h/.c   # save/load results
 └── Makefile
 ```
 

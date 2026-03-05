@@ -33,7 +33,7 @@ int get_steps(HistoryNode *node){
 void print_history(HistoryNode *list, int n){
     while (list != NULL) {
         printf("Step %i: \n", list->step);
-        render_array(list->array,n);
+        render_array_height(list->array,n);
         printf("\n");
         list = list->next;
     }

@@ -11,6 +11,9 @@
  */
 void  render_array(int* array, int n);
 
+// returns position where max value sits
+int find_max(int *array, int n);
 
+void render_array_height(int *array, int n);
 
 #endif
