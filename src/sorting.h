@@ -3,6 +3,7 @@
 
 // Structs & Enum
 
+#include "histroy.h"
 typedef enum SortAlgorithms{
     BubbleSort,
     MergeSort,
@@ -12,9 +13,9 @@ typedef enum SortAlgorithms{
 typedef struct Sorter {
     char name[50];
     SortAlgorithms algorithm;
+    HistoryNode *history;
     int *to_sort;
     int n;
-    int steps;
 } Sorter;
 
 
@@ -34,12 +35,12 @@ int partition(int *array, int low, int high);
 void merge(int arr[], int l, int m, int r);
 
 // Bubblesort algorithm
-void bubble_sort(int *array, int n);
+void bubble_sort(int *array, int n, Sorter *sorter);
 
 //  Mergesort algorithm
-void merge_sort(int *array, int l, int r);
+void merge_sort(int *array, int l, int r, Sorter *sorter);
 
 // Quicksort algorithm (maybe enum to choose which pivot to choose ? )
-void quick_sort(int *array, int low, int high);
+void quick_sort(int *array, int low, int high, Sorter *sorter);
 
 #endif

@@ -1,14 +1,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "sorting.h"
+#include "histroy.h"
 
 
 Sorter *create_sorter(char *name, SortAlgorithms algorithm, int *to_sort, int n){
     Sorter *sorter = malloc(sizeof(Sorter));
+    HistoryNode *head;
+    create_history(&head, to_sort, n);
+    sorter->history = head;
     sorter->algorithm = algorithm;
     sorter->to_sort = to_sort;
     sorter->n = n;
-    sorter->steps = 0;
     strcpy(sorter->name, name);
     return sorter;
 }
@@ -91,18 +94,19 @@ void merge(int arr[], int l, int m, int r){
     }
 }
 
-void bubble_sort(int *array, int n){
+void bubble_sort(int *array, int n, Sorter *sorter){
     int i, j = 0;
         for (i = 0; i < n - 1; i++) {
             for (j = 0; j < n - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
                     swap(&array[j],&array[j + 1]);
+                    add_result(sorter->history, array, sorter->n);
                 }
             }
         }
 }
 
-void quick_sort(int *array, int low, int high){
+void quick_sort(int *array, int low, int high, Sorter *sorter){
     if (low < high) {
 
             // pi is the partition return index of pivot
@@ -110,20 +114,22 @@ void quick_sort(int *array, int low, int high){
 
             // recursion calls for smaller elements
             // and greater or equals elements
-            quick_sort(array, low, pi - 1);
-            quick_sort(array, pi + 1, high);
+            quick_sort(array, low, pi - 1, sorter);
+            quick_sort(array, pi + 1, high, sorter);
+            add_result(sorter->history, array, sorter->n);
         }
 }
 
-void merge_sort(int *array, int l, int r){
+void merge_sort(int *array, int l, int r, Sorter *sorter){
 
     if (l < r) {
         int m = l + (r - l) / 2;
 
         // Sort first and second halves
-        merge_sort(array, l, m);
-        merge_sort(array, m + 1, r);
+        merge_sort(array, l, m, sorter);
+        merge_sort(array, m + 1, r, sorter);
 
         merge(array, l, m, r);
+        add_result(sorter->history, array, sorter->n);
     }
 }

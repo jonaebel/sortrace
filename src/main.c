@@ -1,4 +1,5 @@
 #include "array.h"
+#include "histroy.h"
 #include "render.h"
 #include "sorting.h"
 #include <stdlib.h>
@@ -24,18 +25,18 @@ int  main(){
 
     // Bubble sort
     printf("Bubblesort: \n");
-    bubble_sort(bubble->to_sort, bubble->n);
-    render_array(bubble->to_sort, bubble->n);
+    bubble_sort(bubble->to_sort, bubble->n, bubble);
+    print_history(bubble->history, bubble->n);
 
     // Mergesort
     printf("Mergesort: \n");
-    merge_sort(merge->to_sort, 0, (merge->n)-1);
-    render_array(merge->to_sort, merge->n);
+    merge_sort(merge->to_sort, 0, (merge->n)-1, merge);
+    print_history(merge->history, merge->n);
 
     // Quicksort
     printf("Quicksort: \n");
-    quick_sort(quick->to_sort, 0, (quick->n)-1);
-    render_array(quick->to_sort, quick->n);
+    quick_sort(quick->to_sort, 0, (quick->n)-1, quick);
+    print_history(quick->history, quick->n);
 
     printf("Finished! :)");
 
