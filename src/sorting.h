@@ -1,6 +1,27 @@
 #ifndef SORTING_H
 #define SORTING_H
 
+// Structs & Enum
+
+typedef enum SortAlgorithms{
+    BubbleSort,
+    MergeSort,
+    QuickSort
+} SortAlgorithms;
+
+typedef struct Sorter {
+    char name[50];
+    SortAlgorithms algorithm;
+    int *to_sort;
+    int n;
+    int steps;
+} Sorter;
+
+
+Sorter *create_sorter(char name[50], SortAlgorithms algorithm, int *to_sort, int n);
+
+void free_sorter(Sorter *sorter);
+
 // Helper functions
 
 // swaps the values of two pointer elements

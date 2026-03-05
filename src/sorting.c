@@ -1,4 +1,22 @@
+#include <stdlib.h>
+#include <string.h>
 #include "sorting.h"
+
+
+Sorter *create_sorter(char *name, SortAlgorithms algorithm, int *to_sort, int n){
+    Sorter *sorter = malloc(sizeof(Sorter));
+    sorter->algorithm = algorithm;
+    sorter->to_sort = to_sort;
+    sorter->n = n;
+    sorter->steps = 0;
+    strcpy(sorter->name, name);
+    return sorter;
+}
+
+void free_sorter(Sorter *sorter){
+    free(sorter->to_sort);
+    free(sorter);
+}
 
 void swap(int *x, int *y){
     int temp = *x;
