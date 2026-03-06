@@ -6,9 +6,14 @@
 #include <stdio.h>
 #include <time.h>
 
-const int N = 6;
+
 
 int  main(){
+
+    // user input for defining n
+    int N = 0;
+    printf("What should the array size be?  \n");
+    scanf("%d", &N);
 
     // setup for random nummbers in array.c
     srand(time(NULL));

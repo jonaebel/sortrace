@@ -1,21 +1,26 @@
 # 🏁 sortrace
 
-A terminal-based sorting algorithm visualizer written in C. Watch algorithms race each other in real time using ASCII bar charts.
+A terminal-based sorting algorithm visualizer written in C. Watch algorithms race each other in real time using ASCII bar charts. (older version used simple vertical / per line rendering new method is horizontal like seen below)
 
 ```
-3  ###
-7  #######
-1  #
-5  #####
-8  ########
+█
+█   █
+█   █
+█   █
+█   █ █ █
+█   █ █ █
+█ █ █ █ █
+█ █ █ █ █
+----------
+8 2 7 4 4
 ```
 
-## Features (planned)
+## Features
 - ASCII visualization of arrays in the terminal
 - Multiple sorting algorithms racing side by side: Bubble Sort, Merge Sort, Quick Sort
 - Step counter and time measurement per algorithm
 - Race history saved to file
-- Colorized output with ANSI escape codes
+- Colorized output with ANSI escape codes (still planned @color.h)
 
 ## Algorithms
 | Algorithm | Time Complexity | Space Complexity |

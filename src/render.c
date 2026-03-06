@@ -14,6 +14,7 @@ int find_max(int *array, int n){
     return idx;
 }
 
+// new render method for horizontal and not vertical rendering
 void render_array_height(int *array, int n){
     int max_idx = find_max(array,n);
     for (int i = array[max_idx]; i>0; i--) {
@@ -41,6 +42,7 @@ void render_array_height(int *array, int n){
 
 }
 
+// old method for vertical array rendering
 void render_array(int *array, int n){
     if (array == NULL) {
         printf("Nullpointer : given array is not created yet user create_array(int n) to create one");
